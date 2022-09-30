@@ -1,0 +1,37 @@
+package de.palm.composestateevents.sample
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.ui.Modifier
+import de.palm.composestateevents.sample.ui.FlowerScreen
+
+class SampleActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            MaterialTheme {
+
+                val scaffoldState: ScaffoldState = rememberScaffoldState()
+
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    scaffoldState = scaffoldState,
+                    content = { innerPadding ->
+                        FlowerScreen(
+                            modifier = Modifier.padding(innerPadding),
+                            scaffoldState = scaffoldState
+                        )
+                    }
+                )
+            }
+        }
+    }
+}
