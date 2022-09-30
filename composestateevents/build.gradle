@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -38,4 +39,18 @@ android {
 
 dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.palme4001'
+                artifactId = 'compose-state-events'
+                version = '1.0'
+            }
+        }
+    }
 }
