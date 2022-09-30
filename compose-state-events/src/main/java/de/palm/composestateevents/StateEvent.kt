@@ -1,10 +1,26 @@
 package de.palm.composestateevents
 
-typealias StateEvent = Any
+/**
+ *  This [StateEvent] can only have two primitive states.
+ */
+sealed interface StateEvent {
+    /**
+     *  The event is currently in it's triggered state
+     */
+    object Triggered : StateEvent
 
-data class StateEventWithContent<T>(val content: T)
+    /**
+     *  The event is currently in it's consumed state
+     */
+    object Consumed : StateEvent
+}
 
-val triggered: StateEvent = StateEvent()
-fun <T> triggered(content: T): StateEventWithContent<T> = StateEventWithContent(content)
+/**
+ *  Shorter and more readable version of [StateEvent.Triggered]
+ */
+val triggered = StateEvent.Triggered
 
-val consumed: Nothing? = null
+/**
+ *  Shorter and more readable version of [StateEvent.Consumed]
+ */
+val consumed = StateEvent.Consumed

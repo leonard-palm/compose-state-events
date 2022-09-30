@@ -53,15 +53,15 @@ class FlowerScreenViewModel : ViewModel() {
     }
 
     fun onConsumedDownloadFailedEvent() {
-        state = state.copy(downloadFailedEvent = consumed)
+        state = state.copy(downloadFailedEvent = consumed())
     }
 }
 
 data class FlowerScreenViewState(
     val isLoading: Boolean = false,
     val flowers: List<Flower> = emptyList(),
-    val downloadSucceededEvent: StateEvent? = null,
-    val downloadFailedEvent: StateEventWithContent<Int>? = null
+    val downloadSucceededEvent: StateEvent = consumed,
+    val downloadFailedEvent: StateEventWithContent<Int> = consumed()
 )
 
 private val mockedFlowerList = listOf(
