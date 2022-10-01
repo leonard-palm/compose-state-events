@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlin.coroutines.CoroutineContext
 
 /**
- *  A side effect that gets executed when the given [event] changes to it's triggered state.
+ *  A side effect that gets executed when the given [event] changes to its triggered state.
  * 
  *  @param event Pass the state event to be listened to from your view-state.
  *  @param onConsumed In this callback you are advised to set the passed [event] to [StateEvent.Consumed] in your view-state.
@@ -23,7 +23,7 @@ fun EventEffect(event: StateEvent, onConsumed: () -> Unit, block: suspend Corout
 }
 
 /**
- *  A side effect that gets executed when the given [event] changes to it's triggered state.
+ *  A side effect that gets executed when the given [event] changes to its triggered state.
  *
  *  @param event Pass the state event of type [T] to be listened to from your view-state.
  *  @param onConsumed In this callback you are advised to set the passed [event] to an instance of [StateEventWithContentConsumed] in your view-state (see [consumed]).

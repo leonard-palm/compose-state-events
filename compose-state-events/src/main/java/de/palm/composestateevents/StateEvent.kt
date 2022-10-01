@@ -5,14 +5,14 @@ package de.palm.composestateevents
  */
 sealed interface StateEvent {
     /**
-     *  The event is currently in it's triggered state
+     *  The event is currently in its triggered state
      */
     object Triggered : StateEvent {
         override fun toString(): String = "triggered"
     }
 
     /**
-     *  The event is currently in it's consumed state
+     *  The event is currently in its consumed state
      */
     object Consumed : StateEvent {
         override fun toString(): String = "consumed"
