@@ -49,9 +49,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.palme4001'
+                groupId = 'com.github.leonard-palm'
                 artifactId = 'compose-state-events'
-                version = '1.0'
+                version = '1.0.4'
             }
         }
     }
