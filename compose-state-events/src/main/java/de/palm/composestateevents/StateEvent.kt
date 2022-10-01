@@ -7,12 +7,16 @@ sealed interface StateEvent {
     /**
      *  The event is currently in it's triggered state
      */
-    object Triggered : StateEvent
+    object Triggered : StateEvent {
+        override fun toString(): String = "triggered"
+    }
 
     /**
      *  The event is currently in it's consumed state
      */
-    object Consumed : StateEvent
+    object Consumed : StateEvent {
+        override fun toString(): String = "consumed"
+    }
 }
 
 /**
