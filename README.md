@@ -75,5 +75,5 @@ EventEffect(event = viewState.downloadFailedEvent, onConsumed = viewModel::onCon
     scaffoldState.snackbarHostState.showSnackbar(context.resources.getString(stringRes))
 }
 ```
-The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in it's triggered state. 
+The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
 When the event block was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
