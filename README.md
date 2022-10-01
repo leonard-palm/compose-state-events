@@ -17,8 +17,8 @@ See the samples below on how to effectively use `StateEvent` in your view's stat
 data class FlowerViewState(
     val flowers: List<Flower> = emptyList(),
     val isLoadingFlowers: Boolean = false,
-    val downloadSucceededEvent: StateEvent? = null,
-    val downloadFailedEvent: StateEventWithContent<Int>? = null
+    val downloadSucceededEvent: StateEvent = consumed,
+    val downloadFailedEvent: StateEventWithContent<Int> = consumed()
 )
 ```
 > Imagine we would like to show a green success snackbar or a red failure snackbar after the loading has finished. 
@@ -54,12 +54,12 @@ fun onConsumedDownloadSucceededEvent(){
 }
 
 fun onConsumedDownloadFailedEvent(){
-  state = state.copy(downloadFailedEvent = consumed)
+  state = state.copy(downloadFailedEvent = consumed())
 }
 ```
 To trigger an event without any data just use the `triggered` value, otherwise use the `triggered(content: T)` function.
 
-To consume both of these events just set the `consumed` value in your state.
+To consume an event without any data just use the `consumed` value, otherwise use the `consumed()` function.
 
 ### Composable
 
