@@ -1,5 +1,7 @@
 # Compose-State-Events
 
+[![](https://jitpack.io/v/leonard-palm/compose-state-events.svg)](https://jitpack.io/#leonard-palm/compose-state-events)
+
 A new way to implement One-Time-UI-Events (former SingleLiveEvent) in a Compose world.
 
 This library will help you to avoid implementing any antipatterns regarding One-Time-UI-Events as despribed by Manuel Vivo's [article](https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95).
