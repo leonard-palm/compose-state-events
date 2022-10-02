@@ -60,7 +60,6 @@ fun onConsumedDownloadFailedEvent(){
 }
 ```
 To trigger an event without any data just use the `triggered` value, otherwise use the `triggered(content: T)` function.
-
 To consume an event without any data just use the `consumed` value, otherwise use the `consumed()` function.
 
 ### Composable
