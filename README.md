@@ -79,3 +79,18 @@ EventEffect(event = viewState.downloadFailedEvent, onConsumed = viewModel::onCon
 ```
 The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
 When the event block was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
+
+# Installation
+
+```gradle
+   allprojects {
+       repositories {
+           [..]
+           maven { url "https://jitpack.io" }
+       }
+   }
+   dependencies {
+       // The latest version is available in the badget at the top, replace X.X.X with that version
+       implementation 'com.github.leonard-palm:compose-state-events:X.X.X'
+   }
+``` 
