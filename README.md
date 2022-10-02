@@ -83,14 +83,14 @@ When the event block was executed the effect calls the passed `onConsumed` callb
 # Installation
 
 ```gradle
-   allprojects {
-       repositories {
-           [..]
-           maven { url "https://jitpack.io" }
-       }
+allprojects {
+   repositories {
+       ...
+       maven { url "https://jitpack.io" }
    }
-   dependencies {
-       // The latest version is available in the badget at the top, replace X.X.X with that version
-       implementation 'com.github.leonard-palm:compose-state-events:X.X.X'
-   }
+}
+dependencies {
+   // The latest version is available in the badget at the top, replace X.X.X with that version
+   implementation 'com.github.leonard-palm:compose-state-events:X.X.X'
+}
 ``` 
