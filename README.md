@@ -89,7 +89,7 @@ allprojects {
    }
 }
 dependencies {
-   // The latest version is available in the badget at the top, replace X.X.X with that version
+   // The latest version is available in the badge at the top, replace X.X.X with that version
    implementation 'com.github.leonard-palm:compose-state-events:X.X.X'
 }
 ``` 
