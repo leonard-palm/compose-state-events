@@ -68,11 +68,17 @@ To consume an event without any data just use the `consumed` value, otherwise us
 val viewModel: MainViewModel = viewModel()
 val viewState: MainViewState by viewModel.stateStream.collectAsStateLifecycleAware()
 
-EventEffect(event = viewState.downloadSucceededEvent, onConsumed = viewModel::onConsumedDownloadSucceededEvent) {
+EventEffect(
+    event = viewState.downloadSucceededEvent, 
+    onConsumed = viewModel::onConsumedDownloadSucceededEvent
+) {
     scaffoldState.snackbarHostState.showSnackbar("Download succeeded.")
 }
 
-EventEffect(event = viewState.downloadFailedEvent, onConsumed = viewModel::onConsumedDownloadFailedEvent) { stringRes ->
+EventEffect(
+    event = viewState.downloadFailedEvent, 
+    onConsumed = viewModel::onConsumedDownloadFailedEvent
+) { stringRes ->
     scaffoldState.snackbarHostState.showSnackbar(context.resources.getString(stringRes))
 }
 ```
@@ -89,7 +95,6 @@ allprojects {
    }
 }
 dependencies {
-   // The latest version is available in the badge at the top, replace X.X.X with that version
-   implementation 'com.github.leonard-palm:compose-state-events:X.X.X'
+   implementation 'com.github.leonard-palm:compose-state-events:1.0.4'
 }
 ``` 
