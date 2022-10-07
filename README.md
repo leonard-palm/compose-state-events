@@ -2,6 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/leonard-palm/compose-state-events?color=%234185f3&style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/leonard-palm/compose-state-events?color=%237f52ff&style=for-the-badge)
 
+<br>
 <p align="center"> 
    <img height="150" src="https://user-images.githubusercontent.com/20493984/194604428-89476453-8455-4bc5-803d-7ab604c41b9b.png"/> 
 </p>
