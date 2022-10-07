@@ -89,7 +89,7 @@ EventEffect(
 }
 ```
 The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
-When the event block was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
+When the event action was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
 
 # Installation
 
