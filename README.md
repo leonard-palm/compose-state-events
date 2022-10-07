@@ -1,5 +1,7 @@
 # Compose-State-Events
 
+[![](https://jitpack.io/v/leonard-palm/compose-state-events.svg)](https://jitpack.io/#leonard-palm/compose-state-events)
+
 A new way to implement One-Time-UI-Events (former SingleLiveEvent) in a Compose world.
 
 This library will help you to avoid implementing any antipatterns regarding One-Time-UI-Events as despribed by Manuel Vivo's [article](https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95).
@@ -58,7 +60,6 @@ fun onConsumedDownloadFailedEvent(){
 }
 ```
 To trigger an event without any data just use the `triggered` value, otherwise use the `triggered(content: T)` function.
-
 To consume an event without any data just use the `consumed` value, otherwise use the `consumed()` function.
 
 ### Composable
@@ -67,13 +68,33 @@ To consume an event without any data just use the `consumed` value, otherwise us
 val viewModel: MainViewModel = viewModel()
 val viewState: MainViewState by viewModel.stateStream.collectAsStateLifecycleAware()
 
-EventEffect(event = viewState.downloadSucceededEvent, onConsumed = viewModel::onConsumedDownloadSucceededEvent) {
+EventEffect(
+    event = viewState.downloadSucceededEvent, 
+    onConsumed = viewModel::onConsumedDownloadSucceededEvent
+) {
     scaffoldState.snackbarHostState.showSnackbar("Download succeeded.")
 }
 
-EventEffect(event = viewState.downloadFailedEvent, onConsumed = viewModel::onConsumedDownloadFailedEvent) { stringRes ->
+EventEffect(
+    event = viewState.downloadFailedEvent, 
+    onConsumed = viewModel::onConsumedDownloadFailedEvent
+) { stringRes ->
     scaffoldState.snackbarHostState.showSnackbar(context.resources.getString(stringRes))
 }
 ```
 The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
 When the event block was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
+
+# Installation
+
+```gradle
+allprojects {
+   repositories {
+       ...
+       maven { url "https://jitpack.io" }
+   }
+}
+dependencies {
+   implementation 'com.github.leonard-palm:compose-state-events:1.0.4'
+}
+``` 
