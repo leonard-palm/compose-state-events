@@ -36,11 +36,17 @@ fun FlowerScreen(
 
         Log.d("FlowerScreenViewState", viewState.toString())
 
-        EventEffect(event = viewState.downloadSucceededEvent, onConsumed = viewModel::onConsumedDownloadSucceededEvent) {
-            scaffoldState.snackbarHostState.showSnackbar("Loaded flowers successfully.")
+        EventEffect(
+            event = viewState.downloadSucceededEvent,
+            onConsumed = viewModel::onConsumedDownloadSucceededEvent,
+        ) {
+            scaffoldState.snackbarHostState.showSnackbar("Success")
         }
 
-        EventEffect(event = viewState.downloadFailedEvent, onConsumed = viewModel::onConsumedDownloadFailedEvent) { stringRes ->
+        EventEffect(
+            event = viewState.downloadFailedEvent,
+            onConsumed = viewModel::onConsumedDownloadFailedEvent,
+        ) { stringRes ->
             scaffoldState.snackbarHostState.showSnackbar(context.getString(stringRes))
         }
 
