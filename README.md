@@ -1,3 +1,5 @@
+![compose-state-events-logo](https://user-images.githubusercontent.com/20493984/194602050-e2cd6c31-28bb-4c22-9024-b9e170b2ecf5.png)
+
 # Compose-State-Events
 
 [![](https://jitpack.io/v/leonard-palm/compose-state-events.svg)](https://jitpack.io/#leonard-palm/compose-state-events)
