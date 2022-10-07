@@ -1,7 +1,7 @@
 [![](https://jitpack.io/v/leonard-palm/compose-state-events.svg)](https://jitpack.io/#leonard-palm/compose-state-events)
 
 <p align="center"> 
-   <img height="200" src="https://user-images.githubusercontent.com/20493984/194602050-e2cd6c31-28bb-4c22-9024-b9e170b2ecf5.png"/> 
+   <img height="150" src="https://user-images.githubusercontent.com/20493984/194604428-89476453-8455-4bc5-803d-7ab604c41b9b.png"/> 
 </p>
 
 <h1 align="center"> 
