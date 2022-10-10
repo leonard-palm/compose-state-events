@@ -17,6 +17,8 @@ This library will help you to avoid implementing any antipatterns regarding One-
 
 See the samples below on how to effectively use `StateEvent` in your view's state and `EventEffect` in your composables.
 
+To get an in depth idea on how to migrate see this [article](https://medium.com/proandroiddev/how-to-handle-viewmodel-one-time-events-in-jetpack-compose-a01af0678b76) from Yanneck Reiß.
+
 # How to use
 
 > Imagine a simple usecase where you need to fetch some list data from an API and display the result on the screen.
@@ -104,6 +106,6 @@ allprojects {
    }
 }
 dependencies {
-   implementation 'com.github.leonard-palm:compose-state-events:1.0.5'
+   implementation 'com.github.leonard-palm:compose-state-events:1.1.0'
 }
 ``` 
