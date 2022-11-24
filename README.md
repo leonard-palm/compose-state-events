@@ -1,12 +1,23 @@
-# Compose-State-Events
+![JitPack](https://img.shields.io/jitpack/version/com.github.leonard-palm/compose-state-events?color=%23%233cdb83&style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/leonard-palm/compose-state-events?color=%234185f3&style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/leonard-palm/compose-state-events?color=%237f52ff&style=for-the-badge)
 
-[![](https://jitpack.io/v/leonard-palm/compose-state-events.svg)](https://jitpack.io/#leonard-palm/compose-state-events)
+<br>
+<p align="center"> 
+   <img height="150" src="https://user-images.githubusercontent.com/20493984/194604428-89476453-8455-4bc5-803d-7ab604c41b9b.png"/> 
+</p>
+
+<h1 align="center"> 
+   Compose-State-Events
+</h1>
 
 A new way to implement One-Time-UI-Events (former SingleLiveEvent) in a Compose world.
 
 This library will help you to avoid implementing any antipatterns regarding One-Time-UI-Events as despribed by Manuel Vivo's [article](https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95).
 
 See the samples below on how to effectively use `StateEvent` in your view's state and `EventEffect` in your composables.
+
+To get an in depth idea on how to migrate see this [article](https://medium.com/proandroiddev/how-to-handle-viewmodel-one-time-events-in-jetpack-compose-a01af0678b76) from Yanneck Reiß.
 
 # How to use
 
@@ -83,7 +94,7 @@ EventEffect(
 }
 ```
 The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
-When the event block was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
+When the event action was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
 
 # Installation
 
@@ -95,6 +106,6 @@ allprojects {
    }
 }
 dependencies {
-   implementation 'com.github.leonard-palm:compose-state-events:1.0.4'
+   implementation 'com.github.leonard-palm:compose-state-events:1.1.0'
 }
 ``` 
