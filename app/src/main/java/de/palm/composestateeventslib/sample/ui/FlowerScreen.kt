@@ -1,4 +1,4 @@
-package de.palm.composestateevents.sample.ui
+package de.palm.composestateeventslib.sample.ui
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column

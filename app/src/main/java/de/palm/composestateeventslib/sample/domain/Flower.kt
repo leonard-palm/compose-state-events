@@ -1,4 +1,4 @@
-package de.palm.composestateevents.sample.domain
+package de.palm.composestateeventslib.sample.domain
 
 import java.util.UUID
 

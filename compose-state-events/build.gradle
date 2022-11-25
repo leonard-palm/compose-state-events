@@ -59,7 +59,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.leonard-palm'
                 artifactId = 'compose-state-events'
-                version = '1.2.2'
+                version = '1.2.3'
             }
         }
     }

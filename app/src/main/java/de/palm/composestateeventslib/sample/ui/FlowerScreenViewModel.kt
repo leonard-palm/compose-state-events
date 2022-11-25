@@ -1,11 +1,14 @@
-package de.palm.composestateevents.sample.ui
+package de.palm.composestateeventslib.sample.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import de.palm.composestateevents.*
-import de.palm.composestateevents.sample.domain.Flower
+import de.palm.composestateevents.StateEvent
+import de.palm.composestateevents.StateEventWithContent
+import de.palm.composestateevents.consumed
 import kotlinx.coroutines.delay
-import de.palm.composestateevents.R
+import de.palm.composestateeventslib.R
+import de.palm.composestateevents.triggered
+import de.palm.composestateeventslib.sample.domain.Flower
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

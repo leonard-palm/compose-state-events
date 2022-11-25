@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "ComposeStateEvents"
+rootProject.name = "ComposeStateEventsLib"
 include ':app'
 include ':compose-state-events'

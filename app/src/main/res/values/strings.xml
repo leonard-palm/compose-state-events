@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ComposeStateEvents</string>
+    <string name="app_name">ComposeStateEventsLib</string>
     <string name="flowers_could_not_load">Failed to load flowers.</string>
 </resources>

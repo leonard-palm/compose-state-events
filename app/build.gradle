@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'de.palm.composestateevents'
+    namespace 'de.palm.composestateeventslib'
     compileSdk 33
 
     defaultConfig {
-        applicationId "de.palm.composestateevents"
+        applicationId "de.palm.composestateeventslib"
         minSdk 24
         targetSdk 33
         versionCode 1
-        versionName "1.2.2"
+        versionName "1.2.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

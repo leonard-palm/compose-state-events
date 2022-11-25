@@ -1,4 +1,4 @@
-package de.palm.composestateevents.sample
+package de.palm.composestateeventslib.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
-import de.palm.composestateevents.sample.ui.FlowerScreen
+import de.palm.composestateeventslib.sample.ui.FlowerScreen
 
 class SampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
