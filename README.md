@@ -95,6 +95,21 @@ EventEffect(
 The `EventEffect` is a `LaunchedEffect` that will be executed, when the event is in its triggered state. 
 When the event action was executed the effect calls the passed `onConsumed` callback to force you to set the view state field to be consumed.
 
+### Special Case: Navigation
+In the regular way you only want to consume your event when it really got processed. However, in some special cases you want to make sure that the `StateEvent` gets consumed no matter what the outcome of your code that gets triggered will be.
+One case in which that gets relevant is when you want to navigate to another screen, if a `StateEvent` or `StateEventWithContent<T>` got invoked.
+
+For this special case, instead of `EventEffect`, you can use the `NavigationEventEffect`.
+
+```kotlin
+NavigationEventEffect(  
+  event = viewState.downloadFailedEvent,  
+  onConsumed = viewModel::onConsumedDownloadFailedEvent  
+) { _ ->  
+  navigator.navigateBack()  
+}
+```
+
 # Installation
 
 ```gradle
