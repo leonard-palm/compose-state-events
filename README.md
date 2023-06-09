@@ -54,7 +54,7 @@ fun loadFlowers(){
   viewModelScope.launch {
     state = state.copy(isLoading = true)
     state = when (val apiResult = loadAllFlowersFromApiUseCase.call()) {
-        is Success -> state.copy(flowers: apiResult, downloadSucceededEvent = triggered)
+        is Success -> state.copy(flowers = apiResult, downloadSucceededEvent = triggered)
         is Failure -> state.copy(downloadFailedEvent = triggered(R.string.error_load_flowers))
     }
     state = state.copy(isLoading = false)
@@ -120,6 +120,6 @@ allprojects {
    }
 }
 dependencies {
-   implementation 'com.github.leonard-palm:compose-state-events:1.2.3'
+   implementation 'com.github.leonard-palm:compose-state-events:1.3.1'
 }
-``` 
+```
