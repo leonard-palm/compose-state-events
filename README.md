@@ -120,6 +120,6 @@ allprojects {
    }
 }
 dependencies {
-   implementation 'com.github.leonard-palm:compose-state-events:1.3.1'
+   implementation 'com.github.leonard-palm:compose-state-events:2.0.1'
 }
 ```
