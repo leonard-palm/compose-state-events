@@ -105,7 +105,7 @@ For this special case, instead of `EventEffect`, you can use the `NavigationEven
 NavigationEventEffect(  
   event = viewState.downloadFailedEvent,  
   onConsumed = viewModel::onConsumedDownloadFailedEvent  
-) { _ ->  
+) {
   navigator.navigateBack()  
 }
 ```
