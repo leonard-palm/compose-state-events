@@ -2,6 +2,7 @@ package de.palm.composestateevents
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NonRestartableComposable
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -12,6 +13,7 @@ import kotlin.coroutines.CoroutineContext
  *  @param action Callback that gets called in the composition's [CoroutineContext]. Perform the actual action this [event] leads to.
  */
 @Composable
+@NonRestartableComposable
 fun EventEffect(event: StateEvent, onConsumed: () -> Unit, action: suspend () -> Unit) {
     LaunchedEffect(key1 = event, key2 = onConsumed) {
         if (event is StateEvent.Triggered) {
@@ -29,6 +31,7 @@ fun EventEffect(event: StateEvent, onConsumed: () -> Unit, action: suspend () ->
  *  @param action Callback that gets called in the composition's [CoroutineContext]. Perform the actual action this [event] leads to. The actual content of the [event] will be passed as an argument.
  */
 @Composable
+@NonRestartableComposable
 fun <T> EventEffect(event: StateEventWithContent<T>, onConsumed: () -> Unit, action: suspend (T) -> Unit) {
     LaunchedEffect(key1 = event, key2 = onConsumed) {
         if (event is StateEventWithContentTriggered<T>) {
