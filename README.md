@@ -1,3 +1,4 @@
+![JitPack](https://img.shields.io/jitpack/version/com.github.leonard-palm/compose-state-events?color=%23%233cdb83&style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/leonard-palm/compose-state-events?color=%234185f3&style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/leonard-palm/compose-state-events?color=%237f52ff&style=for-the-badge)
 
