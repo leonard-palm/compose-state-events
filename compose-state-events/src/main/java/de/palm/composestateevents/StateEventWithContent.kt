@@ -6,7 +6,7 @@ import androidx.compose.runtime.Immutable
  *  This [StateEventWithContent] can have exactly 2 states like the [StateEvent] but the triggered state holds a value of type [T].
  */
 @Immutable
-sealed interface StateEventWithContent<T>
+sealed interface StateEventWithContent<out T>
 
 /**
  * The event in its triggered state holding a value of [T]. See [triggered] to create an instance of this.
@@ -21,7 +21,7 @@ class StateEventWithContentTriggered<T>(val content: T) : StateEventWithContent<
  * The event in its consumed state not holding any value. See [consumed] to create an instance of this.
  */
 @Immutable
-class StateEventWithContentConsumed<T> : StateEventWithContent<T> {
+object StateEventWithContentConsumed : StateEventWithContent<Nothing> {
     override fun toString(): String = "consumed"
 }
 
@@ -34,4 +34,4 @@ fun <T> triggered(content: T) = StateEventWithContentTriggered(content)
 /**
  * A shorter and more readable way to create an [StateEventWithContent] in its consumed state.
  */
-fun <T> consumed() = StateEventWithContentConsumed<T>()
+fun consumed() = StateEventWithContentConsumed
