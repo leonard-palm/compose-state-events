@@ -13,7 +13,7 @@ sealed interface StateEventWithContent<out T>
  * @param content A value that is needed on the event consumer side.
  */
 @Immutable
-class StateEventWithContentTriggered<T>(val content: T) : StateEventWithContent<T> {
+data class StateEventWithContentTriggered<T>(val content: T) : StateEventWithContent<T> {
     override fun toString(): String = "triggered($content)"
 }
 
