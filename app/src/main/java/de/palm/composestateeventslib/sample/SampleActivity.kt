@@ -10,13 +10,20 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
-import de.palm.composestateeventslib.sample.ui.FlowerScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import de.palm.composestateeventslib.sample.ui.flower.FlowerScreen
+import de.palm.composestateeventslib.sample.ui.flower_detail.FlowerDetailScreen
 
 class SampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
+
+            val navController = rememberNavController()
+
             MaterialTheme {
 
                 val scaffoldState: ScaffoldState = rememberScaffoldState()
@@ -25,10 +32,25 @@ class SampleActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     scaffoldState = scaffoldState,
                     content = { innerPadding ->
-                        FlowerScreen(
-                            modifier = Modifier.padding(innerPadding),
-                            scaffoldState = scaffoldState
-                        )
+
+                        NavHost(
+                            navController = navController,
+                            startDestination = "flowers"
+                        ) {
+                            composable(route = "flowers") {
+                                FlowerScreen(
+                                    modifier = Modifier.padding(innerPadding),
+                                    scaffoldState = scaffoldState,
+                                    navController = navController
+                                )
+                            }
+                            composable(route = "details") {
+                                FlowerDetailScreen(
+                                    modifier = Modifier.padding(innerPadding),
+                                    navController = navController
+                                )
+                            }
+                        }
                     }
                 )
             }
