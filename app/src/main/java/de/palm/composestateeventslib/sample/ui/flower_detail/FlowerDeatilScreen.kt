@@ -1,6 +1,8 @@
 package de.palm.composestateeventslib.sample.ui.flower_detail
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -8,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import de.palm.composestateevents.NavigationEventEffect
@@ -31,14 +34,32 @@ fun FlowerDetailScreen(
         navController.popBackStack()
     }
 
+    NavigationEventEffect(
+        event = screenState.navBackEvent2,
+    ) {
+        navController.popBackStack()
+    }
+
     Box(modifier = modifier.fillMaxSize()) {
-        Button(
+        Column(
             modifier = Modifier.align(Alignment.Center),
-            onClick = {
-                viewModel.onClickedNavigateBack()
-            }
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text(text = "Navigate Back")
+            Button(
+                onClick = {
+                    viewModel.onClickedNavigateBack()
+                }
+            ) {
+                Text(text = "Navigate Back")
+            }
+
+            Button(
+                onClick = {
+                    viewModel.onClickedNavigateBack2()
+                }
+            ) {
+                Text(text = "Navigate Back1")
+            }
         }
     }
 }

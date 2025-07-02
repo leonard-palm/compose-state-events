@@ -16,7 +16,7 @@ import kotlin.coroutines.CoroutineContext
 @NonRestartableComposable
 fun EventEffect(event: StateEvent, onConsumed: () -> Unit, action: suspend () -> Unit) {
     LaunchedEffect(key1 = event) {
-        if (event is StateEvent.Triggered) {
+        if (event is Triggered) {
             action()
             onConsumed()
         }
@@ -37,6 +37,40 @@ fun <T> EventEffect(event: StateEventWithContent<T>, onConsumed: () -> Unit, act
         if (event is StateEventWithContentTriggered<T>) {
             action(event.content)
             onConsumed()
+        }
+    }
+}
+
+/**
+ *  A side effect that gets executed when the given [event] changes to its triggered state.
+ *
+ *  @param event Pass the state event of type [T] to be listened to from your view-state.
+ *  @param action Callback that gets called in the composition's [CoroutineContext]. Perform the actual action this [event] leads to. The actual content of the [event] will be passed as an argument.
+ */
+@Composable
+@NonRestartableComposable
+fun <T> EventEffect(event: AutoConsumeStateEventWithContent<T>, action: suspend (T) -> Unit) {
+    LaunchedEffect(key1 = event) {
+        if (event is StateEventWithContentTriggered<T> && !event.isConsumed()) {
+            action(event.content)
+            event.consume()
+        }
+    }
+}
+
+/**
+ *  A side effect that gets executed when the given [event] changes to its triggered state.
+ *
+ *  @param event Pass the state event of type [T] to be listened to from your view-state.
+ *  @param action Callback that gets called in the composition's [CoroutineContext]. Perform the actual action this [event] leads to. The actual content of the [event] will be passed as an argument.
+ */
+@Composable
+@NonRestartableComposable
+fun EventEffect(event: AutoConsumeStateEvent, action: suspend () -> Unit) {
+    LaunchedEffect(key1 = event) {
+        if (event is Triggered && !event.isConsumed()) {
+            action()
+            event.consume()
         }
     }
 }

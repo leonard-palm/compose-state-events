@@ -1,6 +1,7 @@
 package de.palm.composestateeventslib.sample.ui.flower
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -29,7 +31,8 @@ fun FlowerScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
 
         val viewModel: FlowerScreenViewModel = viewModel()
@@ -48,6 +51,18 @@ fun FlowerScreen(
         EventEffect(
             event = viewState.downloadFailedEvent,
             onConsumed = viewModel::onConsumedDownloadFailedEvent,
+        ) { stringRes ->
+            scaffoldState.snackbarHostState.showSnackbar(context.getString(stringRes))
+        }
+
+        EventEffect(
+            event = viewState.downloadSucceededEvent2,
+        ) {
+            scaffoldState.snackbarHostState.showSnackbar("Success")
+        }
+
+        EventEffect(
+            event = viewState.downloadFailedEvent2,
         ) { stringRes ->
             scaffoldState.snackbarHostState.showSnackbar(context.getString(stringRes))
         }
@@ -71,6 +86,20 @@ fun FlowerScreen(
             onClick = { viewModel.loadFlowersWithFailure() }
         ) {
             Text("Load flowers with failure")
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { viewModel.loadFlowersWithSuccess2() }
+        ) {
+            Text("Load flowers with success (auto-consume)", textAlign = TextAlign.Center)
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { viewModel.loadFlowersWithFailure2() }
+        ) {
+            Text("Load flowers with failure (auto-consume)", textAlign = TextAlign.Center)
         }
 
         LazyColumn {
