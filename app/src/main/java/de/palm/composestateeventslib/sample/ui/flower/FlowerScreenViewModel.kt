@@ -2,6 +2,8 @@ package de.palm.composestateeventslib.sample.ui.flower
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import de.palm.composestateevents.AutoConsumeStateEvent
+import de.palm.composestateevents.AutoConsumeStateEventWithContent
 import de.palm.composestateevents.StateEvent
 import de.palm.composestateevents.StateEventWithContent
 import de.palm.composestateevents.consumed
@@ -39,6 +41,19 @@ class FlowerScreenViewModel : ViewModel() {
         }
     }
 
+    fun loadFlowersWithSuccess2() {
+        if (state.isLoading) return
+        viewModelScope.launch {
+            state = state.copy(isLoading = true)
+            delay(2_000L)
+            state = state.copy(
+                isLoading = false,
+                flowers = mockedFlowerList,
+                downloadSucceededEvent2 = triggered
+            )
+        }
+    }
+
     fun loadFlowersWithFailure() {
         if (state.isLoading) return
         viewModelScope.launch {
@@ -47,6 +62,18 @@ class FlowerScreenViewModel : ViewModel() {
             state = state.copy(
                 isLoading = false,
                 downloadFailedEvent = triggered(R.string.flowers_could_not_load)
+            )
+        }
+    }
+
+    fun loadFlowersWithFailure2() {
+        if (state.isLoading) return
+        viewModelScope.launch {
+            state = state.copy(isLoading = true)
+            delay(1_000L)
+            state = state.copy(
+                isLoading = false,
+                downloadFailedEvent2 = triggered(R.string.flowers_could_not_load)
             )
         }
     }
@@ -64,7 +91,10 @@ data class FlowerScreenViewState(
     val isLoading: Boolean = false,
     val flowers: List<Flower> = emptyList(),
     val downloadSucceededEvent: StateEvent = consumed,
-    val downloadFailedEvent: StateEventWithContent<Int> = consumed()
+    val downloadFailedEvent: StateEventWithContent<Int> = consumed(),
+
+    val downloadSucceededEvent2: AutoConsumeStateEvent = consumed,
+    val downloadFailedEvent2: AutoConsumeStateEventWithContent<Int> = consumed()
 )
 
 private val mockedFlowerList = listOf(

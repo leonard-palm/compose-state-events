@@ -1,19 +1,13 @@
 package de.palm.composestateeventslib.sample.ui.flower_detail
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import de.palm.composestateevents.AutoConsumeStateEvent
 import de.palm.composestateevents.StateEvent
-import de.palm.composestateevents.StateEventWithContent
 import de.palm.composestateevents.consumed
-import kotlinx.coroutines.delay
-import de.palm.composestateeventslib.R
 import de.palm.composestateevents.triggered
-import de.palm.composestateeventslib.sample.domain.Flower
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
-import java.util.*
 
 class FlowerDetailScreenViewModel : ViewModel() {
 
@@ -33,8 +27,13 @@ class FlowerDetailScreenViewModel : ViewModel() {
     fun onConsumeNavigateBackEvent() {
         state = state.copy(navBackEvent = triggered)
     }
+
+    fun onClickedNavigateBack2() {
+        state = state.copy(navBackEvent2 = triggered)
+    }
 }
 
 data class FlowerDetailScreenViewState(
-    val navBackEvent: StateEvent = consumed
+    val navBackEvent: StateEvent = consumed,
+    val navBackEvent2: AutoConsumeStateEvent = consumed,
 )
