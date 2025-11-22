@@ -13,7 +13,7 @@
 
 A new way to implement One-Time-UI-Events (former SingleLiveEvent) in a Compose world.
 
-This library will help you to avoid implementing any antipatterns regarding One-Time-UI-Events as despribed by Manuel Vivo's [article](https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95).
+This library will help you to avoid implementing any antipatterns regarding One-Time-UI-Events as described by Manuel Vivo's [article](https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95).
 
 See the samples below on how to effectively use `StateEvent` in your view's state and `EventEffect` in your composables.
 
@@ -21,7 +21,7 @@ To get an in depth idea on how to migrate see this [article](https://medium.com/
 
 # How to use
 
-> Imagine a simple usecase where you need to fetch some list data from an API and display the result on the screen.
+> Imagine a simple use-case where you need to fetch some list data from an API and display the result on the screen.
 
 
 
