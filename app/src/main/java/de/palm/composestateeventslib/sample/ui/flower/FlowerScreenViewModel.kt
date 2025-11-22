@@ -1,4 +1,4 @@
-package de.palm.composestateeventslib.sample.ui
+package de.palm.composestateeventslib.sample.ui.flower
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

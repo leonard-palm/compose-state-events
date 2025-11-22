@@ -1,4 +1,4 @@
-package de.palm.composestateeventslib.sample.ui
+package de.palm.composestateeventslib.sample.ui.flower
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
@@ -15,13 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import de.palm.composestateevents.EventEffect
 import de.palm.composestateeventslib.sample.extensions.collectAsStateLifecycleAware
 
 @Composable
 fun FlowerScreen(
     modifier: Modifier = Modifier,
-    scaffoldState: ScaffoldState
+    scaffoldState: ScaffoldState,
+    navController: NavController,
 ) {
 
     Column(
@@ -48,6 +50,13 @@ fun FlowerScreen(
             onConsumed = viewModel::onConsumedDownloadFailedEvent,
         ) { stringRes ->
             scaffoldState.snackbarHostState.showSnackbar(context.getString(stringRes))
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { navController.navigate(route = "details") }
+        ) {
+            Text(text = "Go to Details Screen")
         }
 
         Button(

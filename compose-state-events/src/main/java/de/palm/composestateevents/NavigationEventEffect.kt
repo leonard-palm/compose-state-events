@@ -22,7 +22,7 @@ fun NavigationEventEffect(
     onConsumed: () -> Unit,
     action: suspend () -> Unit
 ) {
-    LaunchedEffect(key1 = event, key2 = onConsumed) {
+    LaunchedEffect(key1 = event) {
         if (event is StateEvent.Triggered) {
             onConsumed()
             action()
@@ -47,7 +47,7 @@ fun <T> NavigationEventEffect(
     onConsumed: () -> Unit,
     action: suspend (T) -> Unit
 ) {
-    LaunchedEffect(key1 = event, key2 = onConsumed) {
+    LaunchedEffect(key1 = event) {
         if (event is StateEventWithContentTriggered<T>) {
             onConsumed()
             action(event.content)
