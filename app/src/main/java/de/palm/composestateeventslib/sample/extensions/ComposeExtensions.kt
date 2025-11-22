@@ -1,4 +1,4 @@
-package de.palm.composestateevents.sample.extensions
+package de.palm.composestateeventslib.sample.extensions
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State

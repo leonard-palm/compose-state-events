@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.palm.composestateevents.EventEffect
-import de.palm.composestateevents.sample.extensions.collectAsStateLifecycleAware
+import de.palm.composestateeventslib.sample.extensions.collectAsStateLifecycleAware
 
 @Composable
 fun FlowerScreen(
